@@ -1,5 +1,5 @@
 # chamilo-bbb
-Chamilo BigBlueButton plugin
+Chamilo BigBlueButton plugin for **Chamilo Version: 1.11.x**
 
 This is customized version which allow user to set user limit per course. 
 
