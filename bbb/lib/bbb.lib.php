@@ -376,14 +376,14 @@ class bbb
             $duration = isset($params['duration']) ? intval($params['duration']) : 0;
             // This setting currently limits the maximum conference duration,
             // to avoid lingering sessions on the video-conference server #6261
-            $duration = 300;
+            //$duration = 300;
             $bbbParams = array(
                 'meetingId' => $params['remote_id'], // REQUIRED
                 'meetingName' => $meetingName, // REQUIRED
                 'attendeePw' => $attendeePassword, // Match this value in getJoinMeetingURL() to join as attendee.
                 'moderatorPw' => $moderatorPassword, // Match this value in getJoinMeetingURL() to join as moderator.
                 'welcomeMsg' => $welcomeMessage, // ''= use default. Change to customize.
-                'dialNumber' => '', // The main number to call into. Optional.
+                //'dialNumber' => '', // The main number to call into. Optional.
                 //'voiceBridge' => $params['voice_bridge'], // PIN to join voice. Required.
                 'webVoice' => '', // Alphanumeric to join voice. Optional.
                 'logoutUrl' =>  $this->logoutUrl,
