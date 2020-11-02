@@ -94,7 +94,16 @@ class bbb
                 }
             }
         }
-        $this->maxUsersLimit = $this->plugin->get('max_users_limit');
+        
+        $max = api_get_course_plugin_setting('bbb', 'big_blue_button_max_students_allowed');
+        $maxFromPlugin = (int) $this->plugin->get('max_users_limit');
+
+        if(!$max && $maxFromPlugin > 0){
+            $max = $maxFromPlugin;
+        }elseif (!$max && !$maxFromPlugin){
+            $max = -1;
+        }
+        $this->maxUsersLimit = $max;
 
         if ($bbbPluginEnabled === 'true') {
             $userInfo = api_get_user_info();
