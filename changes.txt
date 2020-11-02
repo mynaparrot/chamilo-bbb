@@ -1,0 +1,72 @@
+bbb/lib/bbb_plugin.class.php
+
+	public $course_settings = [
+        [
+            'name' => 'big_blue_button_record_and_store',
+            'type' => 'checkbox',
+        ],
+        [
+            'name' => 'bbb_enable_conference_in_groups',
+            'type' => 'checkbox',
+        ],
+        [
+            'name' => 'bbb_force_record_generation',
+            'type' => 'checkbox',
+        ],
+        [
+            'name' => 'big_blue_button_max_students_allowed',
+            'type' => 'input',
+        ],
+        [
+            'name' => 'big_blue_button_meeting_duration',
+            'type' => 'input',
+        ],
+    ];
+
+
+bbb/lib/bbb.lib.php
+
+		$max = api_get_course_plugin_setting('bbb', 'big_blue_button_max_students_allowed');
+        $maxFromPlugin = (int) $this->plugin->get('max_users_limit');
+
+        if(!$max && $maxFromPlugin > 0){
+            $max = $maxFromPlugin;
+        }elseif (!$max && !$maxFromPlugin){
+            $max = -1;
+        }
+
+-------------
+
+			$duration = 300;
+            $meetingDuration = (int) $this->plugin->get('meeting_duration');
+            $meetingDurationFromPlugin = (int) api_get_course_plugin_setting('bbb', 'big_blue_button_meeting_duration');
+
+            if($meetingDurationFromPlugin){
+                $duration = $meetingDurationFromPlugin;
+            }elseif(!empty($meetingDuration)){
+                $duration = $meetingDuration;
+            }
+
+
+bbb/lib/bbb_api.php
+
+Remove:
+
+		if (isset($joinParams['interface']) && (int) $joinParams['interface'] === BBBPlugin::INTERFACE_HTML5) {
+			$bbbHost = api_remove_trailing_slash(CONFIG_SERVER_URL_WITH_PROTOCOL);
+			if (preg_match('#/bigbluebutton$#', $bbbHost)) {
+			    $bbbHost = preg_replace('#/bigbluebutton$#', '', $bbbHost);
+            }
+            $params .= '&redirectClient=true&clientURL='.$bbbHost.'/html5client/join';
+        }
+
+
+        $params .= '&redirectClient=true';
+
+
+bbb/lang/english.php
+
+$strings['big_blue_button_max_students_allowed'] = 'Max users limit <small>(To overide global setting)</small>';
+$strings['big_blue_button_meeting_duration'] = 'Meeting duration <small>(To overide global setting)</small>';
+$strings['bbb_enable_conference_in_groups'] = 'Allow conference in groups';
+

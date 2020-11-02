@@ -30,7 +30,7 @@ $strings['ServerIsNotConfigured'] = "Le serveur de vidéoconférence n'est pas c
 $strings['XUsersOnLine'] = "%s utilisateurs dans la salle";
 
 $strings['host'] = 'Hôte de BigBlueButton';
-$strings['host_help'] = "C'est le nom du serveur où le serveur de vidéoconférence a été habilité. 
+$strings['host_help'] = "C'est le nom du serveur où le serveur de vidéoconférence a été habilité.
 Cela peut être localhost, une adresse IP (du genre http://192.168.13.54) ou un nom de domaine (du genre http://ma.video.com).";
 
 $strings['salt'] = 'Clef BigBlueButton';
@@ -73,3 +73,6 @@ $strings['ParticipantsWillUseSameInterface'] = 'Les apprenants utiliseront la m�
 $strings['SetByDefault'] = 'Lancement de l\'interface par défaut';
 $strings['SetByTeacher'] = 'Choisi par le professeur';
 $strings['SetByStudent'] = 'Choisi par l\'apprenant';
+$strings['bbb_force_record_generation'] = 'Forcer la génération de l\'enregistrement à la fin de la session';
+$strings['ThereIsNoVideoConferenceActive'] = "Il n'y a aucune vidéoconférence actuellement active";
+$strings['meeting_duration'] = 'Durée de la conférence (en minutes)';

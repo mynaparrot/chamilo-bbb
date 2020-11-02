@@ -1,4 +1,4 @@
-<style type="text/css">
+<style>
     .conference .url{
         padding: 5px;
         margin-bottom: 5px;
@@ -33,14 +33,13 @@
                                     <div class="form-group">
                                         <input id="share_button_flash" type="text"
                                                style="width:300px"
-                                               class="form-control" readonly value="{{ conference_url }}&inteface=0">
+                                               class="form-control" readonly value="{{ conference_url }}&interface=0">
                                         <button onclick="copyTextToClipBoard('share_button_flash');" class="btn btn-default">
                                             <span class="fa fa-copy"></span> {{ 'CopyTextToClipboard' | get_lang }}
                                         </button>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -59,7 +58,7 @@
                                     <div class="form-group">
                                         <input id="share_button_html" type="text"
                                                style="width:300px"
-                                               class="form-control" readonly value="{{ conference_url }}&inteface=1">
+                                               class="form-control" readonly value="{{ conference_url }}&interface=1">
 
                                         <button onclick="copyTextToClipBoard('share_button_html');" class="btn btn-default">
                                             <span class="fa fa-copy"></span> {{ 'CopyTextToClipboard' | get_lang }}
@@ -115,18 +114,14 @@
         <div class="page-header">
             <h2>{{ 'RecordList'| get_plugin_lang('BBBPlugin') }}</h2>
         </div>
-
         <table class="table">
             <tr>
-                <!-- th>#</th -->
                 <th>{{ 'CreatedAt'| get_plugin_lang('BBBPlugin') }}</th>
                 <th>{{ 'Status'| get_lang }}</th>
                 <th>{{ 'Records'| get_plugin_lang('BBBPlugin') }}</th>
-
                 {% if allow_to_edit  %}
                     <th>{{ 'Actions'| get_lang }}</th>
                 {% endif %}
-
             </tr>
             {% for meeting in meetings %}
             <tr>
@@ -151,16 +146,14 @@
                         {{ 'NoRecording'|get_plugin_lang('BBBPlugin') }}
                     {% endif %}
                 </td>
-
                 {% if allow_to_edit %}
                     <td>
                     {% if meeting.status == 1 %}
                         <a class="btn btn-default" href="{{ meeting.end_url }} ">
                             {{ 'CloseMeeting'|get_plugin_lang('BBBPlugin') }}
                         </a>
-                    {% else %}
-                        {{ meeting.action_links }}
                     {% endif %}
+                    {{ meeting.action_links }}
                     </td>
                 {% endif %}
 
